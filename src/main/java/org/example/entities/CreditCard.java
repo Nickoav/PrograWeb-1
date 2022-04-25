@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="cards")
-public class Card implements Serializable {
+public class CreditCard implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -45,7 +45,7 @@ public class Card implements Serializable {
         return id;
     }
 
-    public Card setId(Long id) {
+    public CreditCard setId(Long id) {
         this.id = id;
         return this;
     }
@@ -54,7 +54,7 @@ public class Card implements Serializable {
         return exdate;
     }
 
-    public Card setExdate(Calendar exdate) {
+    public CreditCard setExdate(Calendar exdate) {
         this.exdate = exdate;
         return this;
     }
@@ -63,7 +63,7 @@ public class Card implements Serializable {
         return num;
     }
 
-    public Card setNum(String num) {
+    public CreditCard setNum(String num) {
         this.num = num;
         return this;
     }
@@ -72,7 +72,7 @@ public class Card implements Serializable {
         return paym;
     }
 
-    public Card setPaym(Long paym) {
+    public CreditCard setPaym(Long paym) {
         this.paym = paym;
         return this;
     }
@@ -81,7 +81,7 @@ public class Card implements Serializable {
         return cv;
     }
 
-    public Card setCv(Long cv) {
+    public CreditCard setCv(Long cv) {
         this.cv = cv;
         return this;
     }
@@ -90,7 +90,7 @@ public class Card implements Serializable {
         return user;
     }
 
-    public Card setUser(User user) {
+    public CreditCard setUser(User user) {
         this.user = user;
         return this;
     }

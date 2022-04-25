@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="productxsuppliers")
-public class ProductXSupplier implements Serializable {
+@Table(name="Product_Suppliers")
+public class Product_Supplier implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -39,7 +39,7 @@ public class ProductXSupplier implements Serializable {
         return id;
     }
 
-    public ProductXSupplier setId(Long id) {
+    public Product_Supplier setId(Long id) {
         this.id = id;
         return this;
     }
@@ -48,7 +48,7 @@ public class ProductXSupplier implements Serializable {
         return price;
     }
 
-    public ProductXSupplier setStock(Float price) {
+    public Product_Supplier setStock(Float price) {
         this.price =price;
         return this;
     }
@@ -57,7 +57,7 @@ public class ProductXSupplier implements Serializable {
         return stock;
     }
 
-    public ProductXSupplier setTag(Long stock) {
+    public Product_Supplier setTag(Long stock) {
         this.stock = stock;
         return this;
     }
@@ -66,7 +66,7 @@ public class ProductXSupplier implements Serializable {
         return product;
     }
 
-    public ProductXSupplier setProduct(Product product) {
+    public Product_Supplier setProduct(Product product) {
         this.product = product;
         return this;
     }
@@ -75,7 +75,7 @@ public class ProductXSupplier implements Serializable {
         return supplier;
     }
 
-    public ProductXSupplier getSupplier(Supplier supplier) {
+    public Product_Supplier getSupplier(Supplier supplier) {
         this.supplier =supplier;
         return this;
     }

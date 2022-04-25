@@ -22,8 +22,8 @@ public class Purchasedetail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="qty", nullable = false, length = 100)
-    private Long qty;
+    @Column(name="quantity", nullable = false, length = 100)
+    private Long quantity;
 
     @Column(name="amount", nullable = false, length = 100)
     private Long amount;
@@ -51,12 +51,12 @@ public class Purchasedetail implements Serializable {
         return this;
     }
 
-    public Long getQty() {
-        return qty;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public Purchasedetail setQty(Long qty) {
-        this.qty = qty;
+    public Purchasedetail setQuantity(Long quantity) {
+        this.quantity = quantity;
         return this;
     }
     

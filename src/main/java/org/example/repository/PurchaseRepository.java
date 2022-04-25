@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
+import org.example.entities.Purchase;
 
 @Named
 public class PurchaseRepository implements Serializable {
@@ -19,29 +19,29 @@ public class PurchaseRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
-		em.persist(user);
-		return user.getId();
+	public Long insert(Purchase purchase) throws Exception{
+		em.persist(purchase);
+		return purchase.getId();
 	}
 	
-	public Long update(User user) throws Exception{
-		em.merge(user);
-		return user.getId();
+	public Long update(Purchase purchase) throws Exception{
+		em.merge(purchase);
+		return purchase.getId();
 	}
 	
-	public List<User> findAll()  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u", User.class);
-		users=query.getResultList();		
-		return users;
+	public List<Purchase> findAll()  throws Exception{
+		List<Purchase> purchases=new ArrayList<>();
+		TypedQuery<Purchase> query=em.createQuery("FROM User u", Purchase.class);
+		purchases=query.getResultList();		
+		return purchases;
 	}
 	
 	
-	public List<User> findByNickname(String nickname)  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
+	public List<Purchase> findByNickname(String nickname)  throws Exception{
+		List<Purchase> purchases=new ArrayList<>();
+		TypedQuery<Purchase> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Purchase.class);
 		query.setParameter(1, "%"+nickname+"%");
-		users=query.getResultList();		
-		return users;
+		purchases=query.getResultList();		
+		return purchases;
 	}
 }

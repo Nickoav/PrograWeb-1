@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 @Entity
-@Table(name="UserXMemberships")
-public class UserXMembership implements Serializable {
+@Table(name="User_Memberships")
+public class User_Membership implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class UserXMembership implements Serializable {
         return id;
     }
 
-    public UserXMembership setId(Long id) {
+    public User_Membership setId(Long id) {
         this.id = id;
         return this;
     }
@@ -42,7 +42,7 @@ public class UserXMembership implements Serializable {
         return indate;
     }
 
-    public UserXMembership setIndate(Calendar indate) {
+    public User_Membership setIndate(Calendar indate) {
         this.indate = indate;
         return this;
     }
@@ -51,7 +51,7 @@ public class UserXMembership implements Serializable {
         return exdate;
     }
 
-    public UserXMembership setExdate(Calendar exdate) {
+    public User_Membership setExdate(Calendar exdate) {
         this.exdate = exdate;
         return this;
     }
@@ -60,7 +60,7 @@ public class UserXMembership implements Serializable {
         return cycle;
     }
 
-    public UserXMembership setCycle(Long cycle) {
+    public User_Membership setCycle(Long cycle) {
         this.cycle = cycle;
         return this;
     }
@@ -69,7 +69,7 @@ public class UserXMembership implements Serializable {
         return membership;
     }
 
-    public UserXMembership setMembership(Membership membership) {
+    public User_Membership setMembership(Membership membership) {
         this.membership = membership;
         return this;
     }

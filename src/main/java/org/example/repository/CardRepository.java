@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
+import org.example.entities.CreditCard;
 
 @Named
 public class CardRepository implements Serializable {
@@ -19,29 +19,21 @@ public class CardRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
-		em.persist(user);
-		return user.getId();
+	public Long insert(CreditCard card) throws Exception{
+		em.persist(card);
+		return card.getId();
 	}
 	
-	public Long update(User user) throws Exception{
-		em.merge(user);
-		return user.getId();
+	public void delete(CreditCard card) throws Exception{
+		em.remove(card);
 	}
 	
-	public List<User> findAll()  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u", User.class);
-		users=query.getResultList();		
-		return users;
+	public List<CreditCard> findAllbyUserId()  throws Exception{
+		List<CreditCard> cards=new ArrayList<>();
+		TypedQuery<CreditCard> query=em.createQuery("FROM User u", CreditCard.class);
+		cards=query.getResultList();		
+		return cards;
 	}
 	
 	
-	public List<User> findByNickname(String nickname)  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
-		query.setParameter(1, "%"+nickname+"%");
-		users=query.getResultList();		
-		return users;
-	}
 }

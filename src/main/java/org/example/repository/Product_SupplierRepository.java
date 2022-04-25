@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
+import org.example.entities.Product_Supplier;
 
 @Named
 public class Product_SupplierRepository implements Serializable {
@@ -19,29 +19,29 @@ public class Product_SupplierRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
-		em.persist(user);
-		return user.getId();
+	public Long insert(Product_Supplier productxsupplier) throws Exception{
+		em.persist(productxsupplier);
+		return productxsupplier.getId();
 	}
 	
-	public Long update(User user) throws Exception{
-		em.merge(user);
-		return user.getId();
+	public Long update(Product_Supplier productxsupplier) throws Exception{
+		em.merge(productxsupplier);
+		return productxsupplier.getId();
 	}
 	
-	public List<User> findAll()  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u", User.class);
-		users=query.getResultList();		
-		return users;
+	public List<Product_Supplier> findAll()  throws Exception{
+		List<Product_Supplier> productxsuppliers=new ArrayList<>();
+		TypedQuery<Product_Supplier> query=em.createQuery("FROM User u", Product_Supplier.class);
+		productxsuppliers=query.getResultList();		
+		return productxsuppliers;
 	}
 	
 	
-	public List<User> findByNickname(String nickname)  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
+	public List<Product_Supplier> findByNickname(String nickname)  throws Exception{
+		List<Product_Supplier> productxsuppliers=new ArrayList<>();
+		TypedQuery<Product_Supplier> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Product_Supplier.class);
 		query.setParameter(1, "%"+nickname+"%");
-		users=query.getResultList();		
-		return users;
+		productxsuppliers=query.getResultList();		
+		return productxsuppliers;
 	}
 }

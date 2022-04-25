@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
+import org.example.entities.Purchasedetail;
 
 @Named
 public class PurchaseDetailRepository implements Serializable {
@@ -19,29 +19,29 @@ public class PurchaseDetailRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
-		em.persist(user);
-		return user.getId();
+	public Long insert(Purchasedetail purchasedetail) throws Exception{
+		em.persist(purchasedetail);
+		return purchasedetail.getId();
 	}
 	
-	public Long update(User user) throws Exception{
-		em.merge(user);
-		return user.getId();
+	public Long update(Purchasedetail purchasedetail) throws Exception{
+		em.merge(purchasedetail);
+		return purchasedetail.getId();
 	}
 	
-	public List<User> findAll()  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u", User.class);
-		users=query.getResultList();		
-		return users;
+	public List<Purchasedetail> findAll()  throws Exception{
+		List<Purchasedetail> purchasedetails=new ArrayList<>();
+		TypedQuery<Purchasedetail> query=em.createQuery("FROM User u", Purchasedetail.class);
+		purchasedetails=query.getResultList();		
+		return purchasedetails;
 	}
 	
 	
-	public List<User> findByNickname(String nickname)  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
+	public List<Purchasedetail> findByNickname(String nickname)  throws Exception{
+		List<Purchasedetail> purchasedetails=new ArrayList<>();
+		TypedQuery<Purchasedetail> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Purchasedetail.class);
 		query.setParameter(1, "%"+nickname+"%");
-		users=query.getResultList();		
-		return users;
+		purchasedetails=query.getResultList();		
+		return purchasedetails;
 	}
 }

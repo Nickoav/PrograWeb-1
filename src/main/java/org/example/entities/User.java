@@ -26,13 +26,13 @@ public class User implements Serializable {
     @Column(name="tipdoc", nullable = false, length = 100)
     private Long tipdoc;
 
-    @Column(name="doc", nullable = false, length = 100)
-    private String doc;
+    @Column(name="document", nullable = false, length = 100)
+    private String document;
 
-    @Column(name="payment_method", nullable = false, length = 100)
+    @Column(name="firstname", nullable = false, length = 100)
     private String firstname ;
 
-    @Column(name="payment_method", nullable = false, length = 100)
+    @Column(name="lastname", nullable = false, length = 100)
     private String lastname;
 
     @Column(name = "birtdate", nullable = false, length = 100)
@@ -45,12 +45,12 @@ public class User implements Serializable {
     @Column(name="tac", nullable = false, length = 100)
     private Long tac;
 
-    @Column(name="qty", nullable = false, length = 100)
-    private Long qty;
+    @Column(name="quantity", nullable = false, length = 100)
+    private Long quantity;
 
     @OneToOne
-    @JoinColumn(name = "userXMembership_id", nullable = false)
-    private UserXMembership userXMembership;
+    @JoinColumn(name = "user_membership_id", nullable = false)
+    private User_Membership user_membership;
 
     public Long getId() {
         return id;
@@ -98,11 +98,11 @@ public class User implements Serializable {
     }
 
     public String getDoc() {
-        return doc;
+        return document;
     }
 
-    public User setDoc(String doc) {
-        this.doc = doc;
+    public User setDoc(String document) {
+        this.document = document;
         return this;
     }
 
@@ -151,21 +151,21 @@ public class User implements Serializable {
         return this;
     }
 
-    public Long getQty() {
-        return qty;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public User setQty(Long qty) {
-        this.qty = qty;
+    public User setQuantity(Long quantity) {
+        this.quantity = quantity;
         return this;
     }
 
-    public UserXMembership getUserXMembership() {
-        return userXMembership;
+    public User_Membership getUser_Membership() {
+        return user_membership;
     }
 
-    public User setUserXMembership(UserXMembership userXMembership) {
-        this.userXMembership = userXMembership;
+    public User setUser_Membership(User_Membership user_membership) {
+        this.user_membership = user_membership;
         return this;
     }
 }

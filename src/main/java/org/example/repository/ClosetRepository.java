@@ -9,7 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
+import org.example.entities.CreditCard;
+import org.example.entities.Closet;
 
 @Named
 public class ClosetRepository implements Serializable {
@@ -19,29 +20,25 @@ public class ClosetRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
-		em.persist(user);
-		return user.getId();
+	public Long insert(Closet closet) throws Exception{
+		em.persist(closet);
+		return closet.getId();
 	}
 	
-	public Long update(User user) throws Exception{
-		em.merge(user);
-		return user.getId();
+	public Long update(Closet closet) throws Exception{
+		em.merge(closet);
+		return closet.getId();
 	}
 	
-	public List<User> findAll()  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u", User.class);
-		users=query.getResultList();		
-		return users;
+	public void delete(CreditCard card) throws Exception{
+		em.remove(card);
 	}
 	
-	
-	public List<User> findByNickname(String nickname)  throws Exception{
-		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
+	public List<Closet> findByNickname(String nickname)  throws Exception{
+		List<Closet> closets=new ArrayList<>();
+		TypedQuery<Closet> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Closet.class);
 		query.setParameter(1, "%"+nickname+"%");
-		users=query.getResultList();		
-		return users;
+		closets=query.getResultList();		
+		return closets;
 	}
 }

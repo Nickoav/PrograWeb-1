@@ -22,8 +22,8 @@ public class Closet implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="qty", nullable = true, length = 100)
-    private Long qty;
+    @Column(name="quantity", nullable = true, length = 100)
+    private Long quantity;
 
     @Column(name="tag", nullable = false, length = 50)
     private String tag;
@@ -32,9 +32,6 @@ public class Closet implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
     
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
 
     public Long getId() {
         return id;
@@ -45,12 +42,12 @@ public class Closet implements Serializable {
         return this;
     }
 
-    public Long getqty() {
-        return qty;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public Closet setQty(Long qty) {
-        this.qty = qty;
+    public Closet setQuantity(Long quantity) {
+        this.quantity = quantity;
         return this;
     }
 
@@ -72,13 +69,5 @@ public class Closet implements Serializable {
         return this;
     }
     
-    public Product getProduct() {
-        return product;
-    }
-
-    public Closet setProduct(Product product) {
-        this.product = product;
-        return this;
-    }
 
 }
