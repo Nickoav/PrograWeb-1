@@ -13,6 +13,7 @@ import org.example.business.SupplierBusiness;
 import org.example.entities.Product;
 
 @Named
+
 public class ProductController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
