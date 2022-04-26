@@ -9,7 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.example.entities.User;
 import org.example.entities.MyProduct;
+import org.example.entities.Product;
 
 @Named
 public class MyProductRepository implements Serializable {
@@ -19,28 +21,24 @@ public class MyProductRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(MyProduct myproduct) throws Exception{
+	public void insert(User user, Product product) throws Exception{
+		MyProduct myproduct = new MyProduct();
+		myproduct.setName(product.getName());
+		myproduct.setUser(user);
+		myproduct.setProduct(product);
 		em.persist(myproduct);
-		return myproduct.getId();
 	}
 	
-	public Long update(MyProduct myproduct) throws Exception{
-		em.merge(myproduct);
-		return myproduct.getId();
+	
+	public void delete(MyProduct myproduct) throws Exception{
+		em.remove(myproduct);
 	}
 	
-	public List<MyProduct> findAll()  throws Exception{
+	
+	public List<MyProduct> findByName(String name)  throws Exception{
 		List<MyProduct> myproducts=new ArrayList<>();
-		TypedQuery<MyProduct> query=em.createQuery("FROM User u", MyProduct.class);
-		myproducts=query.getResultList();		
-		return myproducts;
-	}
-	
-	
-	public List<MyProduct> findByNickname(String nickname)  throws Exception{
-		List<MyProduct> myproducts=new ArrayList<>();
-		TypedQuery<MyProduct> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", MyProduct.class);
-		query.setParameter(1, "%"+nickname+"%");
+		TypedQuery<MyProduct> query=em.createQuery("FROM MyProduct mp WHERE mp.name LIKE ?1", MyProduct.class);
+		query.setParameter(1, "%"+name+"%");
 		myproducts=query.getResultList();		
 		return myproducts;
 	}

@@ -29,18 +29,11 @@ public class PurchaseDetailRepository implements Serializable {
 		return purchasedetail.getId();
 	}
 	
-	public List<Purchasedetail> findAll()  throws Exception{
-		List<Purchasedetail> purchasedetails=new ArrayList<>();
-		TypedQuery<Purchasedetail> query=em.createQuery("FROM User u", Purchasedetail.class);
-		purchasedetails=query.getResultList();		
-		return purchasedetails;
-	}
 	
-	
-	public List<Purchasedetail> findByNickname(String nickname)  throws Exception{
+	public List<Purchasedetail> findByPurchaseId(String purchase_id)  throws Exception{
 		List<Purchasedetail> purchasedetails=new ArrayList<>();
-		TypedQuery<Purchasedetail> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Purchasedetail.class);
-		query.setParameter(1, "%"+nickname+"%");
+		TypedQuery<Purchasedetail> query=em.createQuery("FROM Purchasedetails pd WHERE pd.purchase_id LIKE ?1", Purchasedetail.class);
+		query.setParameter(1, purchase_id);
 		purchasedetails=query.getResultList();		
 		return purchasedetails;
 	}

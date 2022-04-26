@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+
 import org.example.entities.Product_Supplier;
 
 @Named
@@ -24,24 +25,16 @@ public class Product_SupplierRepository implements Serializable {
 		return productxsupplier.getId();
 	}
 	
-	public Long update(Product_Supplier productxsupplier) throws Exception{
-		em.merge(productxsupplier);
-		return productxsupplier.getId();
+	public void delete(Product_Supplier productxsupplier) throws Exception{
+		em.remove(productxsupplier);
 	}
 	
 	public List<Product_Supplier> findAll()  throws Exception{
 		List<Product_Supplier> productxsuppliers=new ArrayList<>();
-		TypedQuery<Product_Supplier> query=em.createQuery("FROM User u", Product_Supplier.class);
+		TypedQuery<Product_Supplier> query=em.createQuery("FROM Product_Supplier ps", Product_Supplier.class);
 		productxsuppliers=query.getResultList();		
 		return productxsuppliers;
 	}
 	
 	
-	public List<Product_Supplier> findByNickname(String nickname)  throws Exception{
-		List<Product_Supplier> productxsuppliers=new ArrayList<>();
-		TypedQuery<Product_Supplier> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Product_Supplier.class);
-		query.setParameter(1, "%"+nickname+"%");
-		productxsuppliers=query.getResultList();		
-		return productxsuppliers;
-	}
 }

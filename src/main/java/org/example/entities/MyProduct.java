@@ -2,6 +2,7 @@ package org.example.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,40 +20,50 @@ public class MyProduct implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+	@Column(name="name", nullable = false, length = 50)
+    private String name;
 
 	@ManyToOne
-    @JoinColumn(name = "closet_id", nullable = false)
-    private Closet closet;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 	
 	@ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
-	
+
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public MyProduct setId(Long id) {
-        this.id = id;
-        return this;
-    }
-    
-    public Closet getCloset() {
-        return closet;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
 
-    public MyProduct setCloset(Closet closet) {
-        this.closet = closet;
-        return this;
-    }
-    
-    public Product getProduct() {
-        return product;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public MyProduct setProduct(Product product) {
-        this.product = product;
-        return this;
-    }
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
     
 }

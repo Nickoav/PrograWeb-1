@@ -28,10 +28,11 @@ public class CardRepository implements Serializable {
 		em.remove(card);
 	}
 	
-	public List<CreditCard> findAllbyUserId()  throws Exception{
+	public List<CreditCard> findAllbyUserId(Long id)  throws Exception{
 		List<CreditCard> cards=new ArrayList<>();
-		TypedQuery<CreditCard> query=em.createQuery("FROM User u", CreditCard.class);
-		cards=query.getResultList();		
+		TypedQuery<CreditCard> query=em.createQuery("FROM CreditCard cc WHERE cc.user_id LIKE ?1", CreditCard.class);
+		query.setParameter(1, id);
+		cards=query.getResultList();	
 		return cards;
 	}
 	

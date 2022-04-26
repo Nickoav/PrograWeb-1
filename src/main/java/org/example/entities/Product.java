@@ -18,8 +18,12 @@ public class Product implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
 
-    @Column(name="brand", nullable = false, length = 10)
+	@Column(name="name", nullable = false, length = 50)
+    private String name;
+	
+    @Column(name="brand", nullable = false, length = 20)
     private String brand;
 
     @Column(name="size", nullable = false, length = 2)
@@ -43,97 +47,84 @@ public class Product implements Serializable {
     @Column(name="material", nullable = false, length = 10)
     private String material;
 
-    @Column(name="notify", nullable = false, length = 100)
-    private Long notify;
+	public Long getId() {
+		return id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Product setId(Long id) {
-        this.id = id;
-        return this;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getBrand() {
-        return brand;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Product setBrand(String brand) {
-        this.brand = brand;
-        return this;
-    }
+	public String getBrand() {
+		return brand;
+	}
 
-    public String getSize() {
-        return size;
-    }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-    public Product setSize(String size) {
-        this.size = size;
-        return this;
-    }
+	public String getSize() {
+		return size;
+	}
 
-    public String getCate() {
-        return cate;
-    }
+	public void setSize(String size) {
+		this.size = size;
+	}
 
-    public Product getCate(String cate) {
-        this.cate = cate;
-        return this;
-    }
+	public String getCate() {
+		return cate;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public void setCate(String cate) {
+		this.cate = cate;
+	}
 
-    public Product setType(String type) {
-        this.type = type;
-        return this;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public Long getColor() {
-        return color;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public Product setColor(Long color) {
-        this.color = color;
-        return this;
-    }
+	public Long getColor() {
+		return color;
+	}
 
-    public Long getSecunco() {
-        return secunco;
-    }
+	public void setColor(Long color) {
+		this.color = color;
+	}
 
-    public Product setSecunco(Long secunco) {
-        this.secunco = secunco;
-        return this;
-    }
+	public Long getSecunco() {
+		return secunco;
+	}
 
-    public Long getThirdco() {
-        return thirdco;
-    }
+	public void setSecunco(Long secunco) {
+		this.secunco = secunco;
+	}
 
-    public Product setThirdco(Long thirdco) {
-        this.thirdco = thirdco;
-        return this;
-    }
+	public Long getThirdco() {
+		return thirdco;
+	}
 
-    public Long getNotify() {
-        return notify;
-    }
+	public void setThirdco(Long thirdco) {
+		this.thirdco = thirdco;
+	}
 
-    public Product setNotify(Long notify) {
-        this.notify = notify;
-        return this;
-    }
+	public String getMaterial() {
+		return material;
+	}
 
-    public String getMaterial() {
-        return material;
-    }
-
-    public Product setMaterial(String material) {
-        this.material = material;
-        return this;
-    }
-
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+   
 }

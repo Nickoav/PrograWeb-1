@@ -24,23 +24,20 @@ public class PurchaseRepository implements Serializable {
 		return purchase.getId();
 	}
 	
-	public Long update(Purchase purchase) throws Exception{
-		em.merge(purchase);
-		return purchase.getId();
-	}
 	
-	public List<Purchase> findAll()  throws Exception{
+	public List<Purchase> findbyId(Long id)  throws Exception{
 		List<Purchase> purchases=new ArrayList<>();
-		TypedQuery<Purchase> query=em.createQuery("FROM User u", Purchase.class);
+		TypedQuery<Purchase> query=em.createQuery("FROM Purchase p WHERE p.id LIKE ?1", Purchase.class);
+		query.setParameter(1, id);
 		purchases=query.getResultList();		
 		return purchases;
 	}
 	
 	
-	public List<Purchase> findByNickname(String nickname)  throws Exception{
+	public List<Purchase> findByUserId(Long user_id)  throws Exception{
 		List<Purchase> purchases=new ArrayList<>();
-		TypedQuery<Purchase> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Purchase.class);
-		query.setParameter(1, "%"+nickname+"%");
+		TypedQuery<Purchase> query=em.createQuery("FROM Purchase p WHERE p.user_id LIKE ?1", Purchase.class);
+		query.setParameter(1, user_id);
 		purchases=query.getResultList();		
 		return purchases;
 	}
