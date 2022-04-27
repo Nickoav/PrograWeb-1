@@ -1,5 +1,5 @@
 package org.example.controller;
 
-public class MainController {
-	
+public class PurchaseController {
+
 }

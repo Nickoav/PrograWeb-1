@@ -19,8 +19,14 @@ private static final long serialVersionUID = 1L;
 	private UserRepository userRepository;
 	
 	@Transactional
-	public Long insert(User user) throws Exception{
-		return userRepository.insert(user);
+	public boolean insert(User user) throws Exception{
+		userRepository.insert(user);
+		if(user==null) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
 	@Transactional
@@ -28,12 +34,17 @@ private static final long serialVersionUID = 1L;
 		return userRepository.update(user);
 	}
 	
+	@Transactional
+	public void delete(User user) throws Exception{
+		userRepository.delete(user);
+	}
+	
 	public List<User> getAll() throws Exception{
 		return userRepository.findAll();
 	}
 	
-	public List<User> getByNickname(String nick) throws Exception{
-		return userRepository.findByNickname(nick);
+	public List<User> getByEmailandPass(String email, String password) throws Exception{
+		return userRepository.findByEmailandPass(email,password);
 	}
 	
 

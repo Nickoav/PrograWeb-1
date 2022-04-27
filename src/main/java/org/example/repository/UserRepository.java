@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.Product;
 import org.example.entities.User;
 
 @Named
@@ -20,9 +19,9 @@ public class UserRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public Long insert(User user) throws Exception{
+	public void insert(User user) throws Exception{
 		em.persist(user);
-		return user.getId();
+
 	}
 	
 	public Long update(User user) throws Exception{
@@ -30,8 +29,8 @@ public class UserRepository implements Serializable {
 		return user.getId();
 	}
 	
-	public void delete(Product product) throws Exception{
-		em.remove(product);
+	public void delete(User user) throws Exception{
+		em.remove(user);
 	}
 	
 	public List<User> findAll()  throws Exception{
@@ -42,10 +41,11 @@ public class UserRepository implements Serializable {
 	}
 	
 	
-	public List<User> findByNickname(String nickname)  throws Exception{
+	public List<User> findByEmailandPass(String email, String password)  throws Exception{
 		List<User> users=new ArrayList<>();
-		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User.class);
-		query.setParameter(1, "%"+nickname+"%");
+		TypedQuery<User> query=em.createQuery("FROM User u WHERE u.email LIKE ?1 AND u.password LIKE ?2", User.class);
+		query.setParameter(1,email);
+		query.setParameter(2, password);
 		users=query.getResultList();		
 		return users;
 	}

@@ -21,8 +21,8 @@ public class MyProductBusiness implements Serializable {
 	private MyProductRepository myproductRepository;
 	
 	@Transactional
-	public void insert(User user, Product product) throws Exception{
-		myproductRepository.insert(user,product);
+	public void insert(MyProduct myproduct) throws Exception{
+		myproductRepository.insert(myproduct);
 	}
 	
 	

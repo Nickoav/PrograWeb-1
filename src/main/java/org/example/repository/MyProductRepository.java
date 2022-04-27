@@ -9,9 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.User;
 import org.example.entities.MyProduct;
-import org.example.entities.Product;
 
 @Named
 public class MyProductRepository implements Serializable {
@@ -21,12 +19,8 @@ public class MyProductRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
-	public void insert(User user, Product product) throws Exception{
-		MyProduct myproduct = new MyProduct();
-		myproduct.setName(product.getName());
-		myproduct.setUser(user);
-		myproduct.setProduct(product);
-		em.persist(myproduct);
+	public void insert(MyProduct myproduct) throws Exception{
+			em.persist(myproduct);
 	}
 	
 	
