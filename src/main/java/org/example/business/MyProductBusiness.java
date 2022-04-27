@@ -8,8 +8,6 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import org.example.entities.MyProduct;
-import org.example.entities.Product;
-import org.example.entities.User;
 import org.example.repository.MyProductRepository;
 
 @Named
