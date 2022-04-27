@@ -28,6 +28,11 @@ public class ProductBusiness implements Serializable {
 		return productRepository.update(product);
 	}
 	
+	@Transactional
+	public void delete(Product product) throws Exception{
+		productRepository.delete(product);;
+	}
+	
 	public List<Product> getAll() throws Exception{
 		return productRepository.findAll();
 	}

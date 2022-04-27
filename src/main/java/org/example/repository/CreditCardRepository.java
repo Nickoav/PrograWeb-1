@@ -12,7 +12,7 @@ import javax.persistence.TypedQuery;
 import org.example.entities.CreditCard;
 
 @Named
-public class CardRepository implements Serializable {
+public class CreditCardRepository implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

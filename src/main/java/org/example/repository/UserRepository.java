@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.example.entities.Product;
 import org.example.entities.User;
 
 @Named
@@ -27,6 +28,10 @@ public class UserRepository implements Serializable {
 	public Long update(User user) throws Exception{
 		em.merge(user);
 		return user.getId();
+	}
+	
+	public void delete(Product product) throws Exception{
+		em.remove(product);
 	}
 	
 	public List<User> findAll()  throws Exception{

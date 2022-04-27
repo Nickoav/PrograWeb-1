@@ -31,17 +31,10 @@ public class MembershipRepository implements Serializable {
 	
 	public List<Membership> findAll()  throws Exception{
 		List<Membership> memberships=new ArrayList<>();
-		TypedQuery<Membership> query=em.createQuery("FROM User u", Membership.class);
+		TypedQuery<Membership> query=em.createQuery("FROM Membership m", Membership.class);
 		memberships=query.getResultList();		
 		return memberships;
 	}
 	
-	
-	public List<Membership> findByNickname(String nickname)  throws Exception{
-		List<Membership> memberships=new ArrayList<>();
-		TypedQuery<Membership> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", Membership.class);
-		query.setParameter(1, "%"+nickname+"%");
-		memberships=query.getResultList();		
-		return memberships;
-	}
+
 }

@@ -30,7 +30,7 @@ public class PurchaseDetailRepository implements Serializable {
 	}
 	
 	
-	public List<Purchasedetail> findByPurchaseId(String purchase_id)  throws Exception{
+	public List<Purchasedetail> findByPurchaseId(Long purchase_id)  throws Exception{
 		List<Purchasedetail> purchasedetails=new ArrayList<>();
 		TypedQuery<Purchasedetail> query=em.createQuery("FROM Purchasedetails pd WHERE pd.purchase_id LIKE ?1", Purchasedetail.class);
 		query.setParameter(1, purchase_id);

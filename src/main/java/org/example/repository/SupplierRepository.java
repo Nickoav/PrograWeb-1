@@ -19,10 +19,18 @@ public class SupplierRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 	
+	public Long insert(Supplier supplier) throws Exception{
+		em.persist(supplier);
+		return supplier.getId();
+	}
+	
+	public void delete(Supplier supplier) throws Exception{
+		em.remove(supplier);
+	}
+	
 	public List<Supplier> findAll()throws Exception{
 		List<Supplier> suppliers=new ArrayList<>();	
-		//SELECT s FROM Supplier s ==> JPQL Java Persistence Query Language
-		TypedQuery<Supplier> query=em.createQuery("SELECT s FROM Supplier s", Supplier.class);
+		TypedQuery<Supplier> query=em.createQuery("FROM Supplier s", Supplier.class);
 		suppliers=query.getResultList();		
 		return suppliers;
 	}

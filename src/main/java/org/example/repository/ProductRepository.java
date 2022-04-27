@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.example.entities.CreditCard;
 import org.example.entities.Product;
 
 @Named
@@ -30,8 +29,8 @@ public class ProductRepository implements Serializable {
 		return product.getId();
 	}
 	
-	public void delete(CreditCard card) throws Exception{
-		em.remove(card);
+	public void delete(Product product) throws Exception{
+		em.remove(product);
 	}
 	
 	public List<Product> findAll()  throws Exception{

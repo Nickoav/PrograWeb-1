@@ -29,18 +29,15 @@ public class User_MembershipRepository implements Serializable {
 		return userxmembership.getId();
 	}
 	
-	public List<User_Membership> findAll()  throws Exception{
-		List<User_Membership> userxmemberships=new ArrayList<>();
-		TypedQuery<User_Membership> query=em.createQuery("FROM User u", User_Membership.class);
-		userxmemberships=query.getResultList();		
-		return userxmemberships;
+	public void delete(User_Membership userxmembership) throws Exception{
+		em.remove(userxmembership);
 	}
 	
 	
-	public List<User_Membership> findByNickname(String nickname)  throws Exception{
+	public List<User_Membership> findByUserId(Long id)  throws Exception{
 		List<User_Membership> userxmemberships=new ArrayList<>();
-		TypedQuery<User_Membership> query=em.createQuery("FROM User u WHERE u.nickname LIKE ?1", User_Membership.class);
-		query.setParameter(1, "%"+nickname+"%");
+		TypedQuery<User_Membership> query=em.createQuery("FROM User_Membership um WHERE um.user_id LIKE ?1", User_Membership.class);
+		query.setParameter(1,id);
 		userxmemberships=query.getResultList();		
 		return userxmemberships;
 	}
