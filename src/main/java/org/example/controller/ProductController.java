@@ -3,7 +3,6 @@ package org.example.controller;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -13,6 +12,9 @@ import javax.inject.Named;
 import org.example.business.ProductBusiness;
 import org.example.business.SupplierBusiness;
 import org.example.entities.Product;
+import org.example.util.Message;
+import org.primefaces.event.SelectEvent;
+import org.example.entities.Supplier;
 
 
 
@@ -33,6 +35,8 @@ public class ProductController implements Serializable {
 	private List<Product> products;
 	private Product productSelect;
 
+	private Supplier supplier;
+	private List<Supplier> suppliers;
 
 	private String filterName;
 
@@ -41,7 +45,8 @@ public class ProductController implements Serializable {
 		product = new Product();
 		products = new ArrayList<Product>();
 
-
+		supplier = new Supplier();
+		suppliers = new ArrayList<>();
 		getAllProducts();
 	}
 
@@ -75,11 +80,9 @@ public class ProductController implements Serializable {
 		try {
 
 			if (product.getId() != null) {
-				product.setSupplier(supplier);
 				productBusiness.update(product);
 				Message.messageInfo("Registro actualizado exitosamente");
 			} else {
-				product.setSupplier(supplier);
 				productBusiness.insert(product);
 				Message.messageInfo("Registro guardado exitosamente");
 
