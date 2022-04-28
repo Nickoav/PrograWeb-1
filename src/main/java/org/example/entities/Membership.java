@@ -19,7 +19,7 @@ public class Membership implements Serializable {
     @Column(name="desc", nullable = false, length = 100)
     private String desc;
 
-    @Column(name="cost", nullable = false, length = 100)
+    @Column(name="cost", nullable = false)
     private Float cost;
 
     public Long getId() {

@@ -27,14 +27,14 @@ public class CreditCard implements Serializable {
     @Column(name="num", nullable = false, length = 16)
     private String num;
 
-    @Column(name="paym", nullable = false, length = 50)
+    @Column(name="paym", nullable = false)
     private Long paym;
 
-    @Column(name= "exdate", nullable = false, length = 100)
+    @Column(name= "exdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar exdate;
     
-    @Column(name= "cv", nullable = false, length = 100)
+    @Column(name= "cv", nullable = false)
     private Long cv;
 
     @ManyToOne

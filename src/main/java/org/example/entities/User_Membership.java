@@ -14,15 +14,15 @@ public class User_Membership implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "indate", nullable = false, length = 100)
+    @Column(name = "indate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar indate;
     
-    @Column(name = "exdate", nullable = false, length = 100)
+    @Column(name = "exdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar exdate;
 
-    @Column(name="cycle", nullable = false, length = 100)
+    @Column(name="cycle", nullable = false)
     private Long cycle;
 
     @ManyToOne

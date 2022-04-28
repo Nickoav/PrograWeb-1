@@ -24,17 +24,17 @@ public class Purchase implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "date", nullable = false, length = 100)
+    @Column(name = "date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
 
-    @Column(name="amount", nullable = false, length = 100)
+    @Column(name="amount", nullable = false)
     private Long amount;
 
     @Column(name="address", nullable = false, length = 50)
     private String address;
 
-    @Column(name= "method", nullable = false, length = 100)
+    @Column(name= "method", nullable = false)
     private Long method;
 
     @ManyToOne

@@ -23,7 +23,7 @@ public class User implements Serializable {
     @Column(name="nickname", nullable = false, length = 100)
     private String nickname;
 
-    @Column(name="tipdoc", nullable = false, length = 100)
+    @Column(name="tipdoc", nullable = false)
     private Long tipdoc;
 
     @Column(name="document", nullable = false, length = 100)
@@ -35,17 +35,17 @@ public class User implements Serializable {
     @Column(name="lastname", nullable = false, length = 100)
     private String lastname;
 
-    @Column(name = "birtdate", nullable = false, length = 100)
+    @Column(name = "birtdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar birtdate;
 
-    @Column(name="notify", nullable = false, length = 100)
+    @Column(name="notify", nullable = false)
     private Long notify;
 
-    @Column(name="tac", nullable = false, length = 100)
+    @Column(name="tac", nullable = false)
     private Long tac;
 
-    @Column(name="quantity", nullable = false, length = 100)
+    @Column(name="quantity", nullable = false)
     private Long quantity;
 
     @OneToOne

@@ -35,13 +35,13 @@ public class Product implements Serializable {
     @Column(name="type", nullable = false, length = 10)
     private String type;
 
-    @Column(name="color", nullable = false, length = 100)
+    @Column(name="color", nullable = false)
     private Long color;
 
-    @Column(name="secunco", nullable = false, length = 100)
+    @Column(name="secunco", nullable = false)
     private Long secunco ;
 
-    @Column(name="thirdco", nullable = false, length = 100)
+    @Column(name="thirdco", nullable = false)
     private Long thirdco;
 
     @Column(name="material", nullable = false, length = 10)

@@ -21,10 +21,10 @@ public class Product_Supplier implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="price", nullable = true, length = 2)
+    @Column(name="price", nullable = true)
     private Float price;
 
-    @Column(name="stock", nullable = false, length = 50)
+    @Column(name="stock", nullable = false)
     private Long stock;
 
     @ManyToOne
