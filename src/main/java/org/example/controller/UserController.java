@@ -30,7 +30,7 @@ public class UserController implements Serializable {
 
 	public String Bienvenida() {
 		this.LimpiarFormulario();
-		return "Bienvenido";
+		return "Landing";
 		
 	}
 	
@@ -46,7 +46,7 @@ public class UserController implements Serializable {
 			Listausuarios=this.userBusiness.getByEmailandPass(this.user.getEmail(), this.user.getPassword());
 			if(!Listausuarios.isEmpty()) {
 				user=Listausuarios.get(0);
-				return "Menu";
+				return "index";
 			}
 			else {
 				return "Login";
@@ -61,20 +61,20 @@ public class UserController implements Serializable {
 	
 	public String Register() {
 		this.LimpiarFormulario();
-		return "Register";
+		return "SignIn";
 	}
 	
 	public String buttonRegister() {
 		try {
 			boolean Regexitoso=this.userBusiness.insert(user);
 			if(Regexitoso) {
-				return "Menu";
+				return "index";
 				}
 				else
-					return "Register";
+					return "SignIn";
 			
 		} catch (Exception e) {
-		return "Register";
+		return "SignIn";
 		}
 		
 	}
