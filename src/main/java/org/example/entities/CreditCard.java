@@ -24,21 +24,21 @@ public class CreditCard implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="num", nullable = false, length = 16)
+    @Column(name="c_num", nullable = false, length = 16)
     private String num;
 
-    @Column(name="paym", nullable = false)
+    @Column(name="c_paym", nullable = false)
     private Long paym;
 
-    @Column(name= "exdate", nullable = false)
+    @Column(name= "c_exdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar exdate;
     
-    @Column(name= "cv", nullable = false)
+    @Column(name= "c_cv", nullable = false)
     private Long cv;
 
     @ManyToOne
-    @JoinColumn(name = "User_id", nullable = false)
+    @JoinColumn(name = "c_User_id", nullable = false)
     private User user;
 
     public Long getId() {

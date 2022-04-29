@@ -21,15 +21,15 @@ public class MyProduct implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name="name", nullable = false, length = 50)
+	@Column(name="mp_name", nullable = false, length = 50)
     private String name;
 
 	@ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "mp_user_id", nullable = false)
     private User user;
 	
 	@ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "mp_product_id", nullable = false)
     private Product product;
 
 	public Long getId() {

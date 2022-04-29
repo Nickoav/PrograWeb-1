@@ -21,17 +21,17 @@ public class Supplier implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name", nullable = false, length = 50)
+    @Column(name="s_name", nullable = false, length = 50)
     private String name;
 
-    @Column(name="address", nullable = false, length = 50)
+    @Column(name="s_address", nullable = false, length = 50)
     private String address;
 
-    @Column(name= "categ", nullable = false, length = 50)
+    @Column(name= "s_categ", nullable = false, length = 50)
     private String categ;
 
     @ManyToOne
-    @JoinColumn(name = "User_id", nullable = false)
+    @JoinColumn(name = "s_User_id", nullable = false)
     private User user;
 
     public Long getId() {

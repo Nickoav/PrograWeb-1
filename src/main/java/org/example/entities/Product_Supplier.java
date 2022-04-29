@@ -21,18 +21,18 @@ public class Product_Supplier implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="price", nullable = true)
+    @Column(name="ps_price", nullable = true)
     private Float price;
 
-    @Column(name="stock", nullable = false)
+    @Column(name="ps_stock", nullable = false)
     private Long stock;
 
     @ManyToOne
-    @JoinColumn(name = "supplier_id", nullable = false)
+    @JoinColumn(name = "ps_supplier_id", nullable = false)
     private Supplier supplier;
     
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "ps_product_id", nullable = false)
     private Product product;
 
     public Long getId() {

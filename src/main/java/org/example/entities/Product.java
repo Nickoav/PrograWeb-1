@@ -20,31 +20,31 @@ public class Product implements Serializable {
     private Long id;
 	
 
-	@Column(name="name", nullable = false, length = 50)
+	@Column(name="p_name", nullable = false, length = 50)
     private String name;
 	
-    @Column(name="brand", nullable = false, length = 20)
+    @Column(name="p_brand", nullable = false, length = 20)
     private String brand;
 
-    @Column(name="size", nullable = false, length = 2)
+    @Column(name="p_size", nullable = false, length = 2)
     private String size;
 
-    @Column(name="cate", nullable = false, length = 10)
+    @Column(name="p_cate", nullable = false, length = 10)
     private String cate;
 
-    @Column(name="type", nullable = false, length = 10)
+    @Column(name="p_type", nullable = false, length = 10)
     private String type;
 
-    @Column(name="color", nullable = false)
+    @Column(name="p_color", nullable = false)
     private Long color;
 
-    @Column(name="secunco", nullable = false)
+    @Column(name="p_secunco", nullable = false)
     private Long secunco ;
 
-    @Column(name="thirdco", nullable = false)
+    @Column(name="p_thirdco", nullable = false)
     private Long thirdco;
 
-    @Column(name="material", nullable = false, length = 10)
+    @Column(name="p_material", nullable = false, length = 10)
     private String material;
 
 	public Long getId() {

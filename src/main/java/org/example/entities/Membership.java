@@ -13,13 +13,13 @@ public class Membership implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name", nullable = false, length = 100)
+    @Column(name="m_name", nullable = false, length = 100)
     private String name;
 
-    @Column(name="desc", nullable = false, length = 100)
+    @Column(name="m_desc", nullable = false, length = 100)
     private String desc;
 
-    @Column(name="cost", nullable = false)
+    @Column(name="m_cost", nullable = false)
     private Float cost;
 
     public Long getId() {

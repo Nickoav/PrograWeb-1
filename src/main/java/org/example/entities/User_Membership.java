@@ -14,19 +14,19 @@ public class User_Membership implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "indate", nullable = false)
+    @Column(name = "um_indate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar indate;
     
-    @Column(name = "exdate", nullable = false)
+    @Column(name = "um_exdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar exdate;
 
-    @Column(name="cycle", nullable = false)
+    @Column(name="um_cycle", nullable = false)
     private Long cycle;
 
     @ManyToOne
-    @JoinColumn(name = "membership_id", nullable = false)
+    @JoinColumn(name = "um_membership_id", nullable = false)
     private Membership membership;
 
     public Long getId() {

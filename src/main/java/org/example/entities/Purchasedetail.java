@@ -22,24 +22,24 @@ public class Purchasedetail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="quantity", nullable = false)
+    @Column(name="pd_quantity", nullable = false)
     private Long quantity;
 
-    @Column(name="amount", nullable = false)
+    @Column(name="pd_amount", nullable = false)
     private Long amount;
 
-    @Column(name= "igv", nullable = false)
+    @Column(name= "pd_igv", nullable = false)
     private Long igv;
     
-    @Column(name= "shipcost", nullable = false)
+    @Column(name= "pd_shipcost", nullable = false)
     private Long shipcost;
 
     @ManyToOne
-    @JoinColumn(name = "Product_id", nullable = false)
+    @JoinColumn(name = "pd_Product_id", nullable = false)
     private Product product;
     
     @OneToOne
-    @JoinColumn(name = "Purchase_id", nullable = false)
+    @JoinColumn(name = "pd_Purchase_id", nullable = false)
     private Purchase purchase;
 
     public Long getId() {

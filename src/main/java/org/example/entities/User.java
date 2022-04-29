@@ -14,42 +14,42 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="email", nullable = false, length = 100)
+    @Column(name="u_email", nullable = false, length = 100)
     private String email;
 
-    @Column(name="password", nullable = false, length = 100)
+    @Column(name="u_password", nullable = false, length = 100)
     private String password;
 
-    @Column(name="nickname", nullable = false, length = 100)
+    @Column(name="u_nickname", nullable = false, length = 100)
     private String nickname;
 
-    @Column(name="tipdoc", nullable = false)
+    @Column(name="u_tipdoc", nullable = false)
     private Long tipdoc;
 
-    @Column(name="document", nullable = false, length = 100)
+    @Column(name="u_document", nullable = false, length = 100)
     private String document;
 
-    @Column(name="firstname", nullable = false, length = 100)
+    @Column(name="u_firstname", nullable = false, length = 100)
     private String firstname ;
 
-    @Column(name="lastname", nullable = false, length = 100)
+    @Column(name="u_lastname", nullable = false, length = 100)
     private String lastname;
 
-    @Column(name = "birtdate", nullable = false)
+    @Column(name = "u_birtdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar birtdate;
 
-    @Column(name="notify", nullable = false)
+    @Column(name="u_notify", nullable = false)
     private Long notify;
 
-    @Column(name="tac", nullable = false)
+    @Column(name="u_tac", nullable = false)
     private Long tac;
 
-    @Column(name="quantity", nullable = false)
+    @Column(name="u_quantity", nullable = false)
     private Long quantity;
 
     @OneToOne
-    @JoinColumn(name = "user_membership_id", nullable = false)
+    @JoinColumn(name = "u_user_membership_id", nullable = false)
     private User_Membership user_membership;
 
     public Long getId() {
